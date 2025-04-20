@@ -19,11 +19,11 @@ _Simulation of an RF ion thrusters extraction grid using IBSimu_
 
   **Group Project**
   _Impact of error mitigation on the quantum teleportation circuit_
-  → [Download PDF](./docs/2024-Group-Project-english.pdf)
+  → [Download PDF](./docs/2025-Group-Project-english.pdf)
 
   **Paper Discussion**
   _Discussion of the Augmented Apollo Powered Descent Guidance Paper by Ping Lu_
-  → [Download PDF](./docs/2024-Paper-Discussion-english.pdf)
+  → [Download PDF](./docs/2025-Paper-Discussion-english.pdf)
 
 ---
 
