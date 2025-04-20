@@ -28,4 +28,4 @@ _Simulation of an RF ion thrusters extraction grid using IBSimu_
 ---
 
 You can also view this site as a webpage via GitHub Pages:  
-🔗 **[peterplr.github.io/portfolio](https://peterplr.github.io/portfolio)**
+🔗 **[peterplr.github.io/portfolio](https://peterplr.github.io)**

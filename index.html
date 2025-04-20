@@ -1,14 +1,89 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Peter Preisler – Selected Projects</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peter Preisler</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+    p.description {
+      max-width: 700px;
+      text-align: center;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+    .project-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      max-width: 800px;
+      width: 100%;
+    }
+    .project {
+      background: #fff;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    }
+    .project h2 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.3rem;
+    }
+    .project p {
+      margin: 0;
+    }
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-    <p><a href="2024-Bachelorthesis-german.pdf">Bachelor Thesis</a></p>
-    <p><a href="2024-Study-Project-german.pdf">Study Project</a></p>
-    <p><a href="2025-Group-Project-english.pdf">Group Project</a></p>
-    <p><a href="2025-Paper-Discussion-english.pdf">Paper Discussion</a></p>
+  <h1>Peter Preisler</h1>
+  <p class="description">
+    TBD
+  </p>
+
+  <div class="project-list">
+    <div class="project">
+      <h2><a href="./docs/2024-Bachelorthesis-german.pdf">Bachelor Thesis</a></h2>
+      <p>My bachelor thesis describes my work on an experimental setup that is used to produce and characterize solid state ion sources. Their emission properties are described by the Richardson-Dushman equation that correlates temperature and emitted current density. To characterize the crystals, I implemented and automated a temperature measurement using optical emission spectroscopy. My work shows that the produced crystals exhibit the expected behavior and that the implemented method can be used for comparing different crystals to optimize their production.</p>
+    </div>
+    <div class="project">
+      <h2><a href="./docs/2024-Study-Project-german.pdf">Study Project</a></h2>
+      <p>As the name suggests, gridded ion thrusters rely on an extraction grid for thrust generation. This grid accelerates the ions supplied by some sort of plasma source. Usually, two or three grids with different potentials are used to direct the ions to the most optimal trajectories. To determine the optimal geometrical parameters, I performed ion optics simulations with the linux-based simulation framework IBSimu. Comparing two different figures of merit, I was able to determine an optimal grid distance.</p>
+    </div>
+    <div class="project">
+      <h2><a href="./docs/2025-Group-Project-english.pdf">Group Project</a></h2>
+      <p>In this group project, we were able to display the knowledge we gained after two quarters of lectures about quantum computation. As a baseline we used the quantum teleportation circuit that uses entanglement to teleport quantum information from one qubit to the other. To this circuit we applied two different error mitigation schemes and characterized their influence on the final fidelity measurement.</p>
+    </div>
+    <div class="project">
+        <h2><a href="./docs/2025-Paper-Discussion-english.pdf">Paper Discussion</a></h2>
+        <p>As part of a lecture on Spacecraft Dynamics and Control, I analyzed, reproduced, and discussed a paper that outlines a novel powered descent guidance approach to land spacecraft on the Moon or Mars. I was successful in recreating the main part of the guidance system and visualize the results.</p>
+      </div>
+  </div>
+
+
+    <p><a href="./docs/2024-Bachelorthesis-german.pdf">Bachelor Thesis</a></p>
+    <p><a href="./docs/2024-Study-Project-german.pdf">Study Project</a></p>
+    <p><a href="./docs/2025-Group-Project-english.pdf">Group Project</a></p>
+    <p><a href="./docs/2025-Paper-Discussion-english.pdf">Paper Discussion</a></p>
     <p><a href="mailto:peter.preisler@online.de">Email me</a></p>
 </body>
 </html>
