@@ -10,7 +10,7 @@ This repository showcases a few selected technical reports and academic projects
 ## 📘 Projects & Reports
 
 - **Bachelor Thesis**  
-  _Establishment of a temperature measurement using emission spectroscopy to characterize the ion emission properties of a solid-state ion source_  
+  _Establishment of a temperature measurement using emission spectroscopy to characterize the ion emission properties of a solid-state ion source_
   → [Download PDF](./docs/2024-Bachelorthesis-german.pdf)
 
 - **Study Project**  
