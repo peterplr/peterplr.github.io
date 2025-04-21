@@ -1,9 +1,9 @@
-# Selected Projects & Reports
+# Peter Preisler
 
 Welcome!  
 This repository showcases a few selected technical reports and academic projects I've worked on in the context of space propulsion, plasma physics, and related fields.
 
-📫 For collaboration or CV requests, feel free to contact me: [peter.preisler@online.de](mailto:peter.preisler@online.de)
+📫 For collaboration or CV requests, feel free to contact me through the form on my **[website](https://peterplr.github.io)**.
 
 ---
 
@@ -17,11 +17,11 @@ This repository showcases a few selected technical reports and academic projects
 _Simulation of an RF ion thrusters extraction grid using IBSimu_
   → [Download PDF](./docs/2024-Study-Project-german.pdf)
 
-  **Group Project**
+- **Group Project**
   _Impact of error mitigation on the quantum teleportation circuit_
   → [Download PDF](./docs/2025-Group-Project-english.pdf)
 
-  **Paper Discussion**
+- **Paper Discussion**
   _Discussion of the Augmented Apollo Powered Descent Guidance Paper by Ping Lu_
   → [Download PDF](./docs/2025-Paper-Discussion-english.pdf)
 
