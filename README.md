@@ -14,14 +14,14 @@ This repository showcases a few selected technical reports and academic projects
   → [Download PDF](./docs/2024-Bachelorthesis-german.pdf)
 
 - **Study Project**  
-_Simulation of an RF ion thrusters extraction grid using IBSimu_
+  _Simulation of an RF ion thrusters extraction grid using IBSimu_
   → [Download PDF](./docs/2024-Study-Project-german.pdf)
 
-- **Group Project**
+- **Group Project**  
   _Impact of error mitigation on the quantum teleportation circuit_
   → [Download PDF](./docs/2025-Group-Project-english.pdf)
 
-- **Paper Discussion**
+- **Paper Discussion**  
   _Discussion of the Augmented Apollo Powered Descent Guidance Paper by Ping Lu_
   → [Download PDF](./docs/2025-Paper-Discussion-english.pdf)
 
