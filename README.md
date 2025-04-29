@@ -25,6 +25,10 @@ This repository showcases a few selected technical reports and academic projects
   _Discussion of the Augmented Apollo Powered Descent Guidance Paper by Ping Lu_
   → [Download PDF](./docs/2025-Paper-Discussion-english.pdf)
 
+- **Computational Project**  
+  _Accuracy, Stability, Convergence for Linear Advection and Ideal MHD Plasma Model_
+  → [Download PDF](./docs/2025-FDM-schemes-MHD-simu-english.pdf)
+
 ---
 
 You can also view this site as a webpage via GitHub Pages:  
