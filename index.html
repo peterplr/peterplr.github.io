@@ -5,25 +5,187 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Peter Preisler</title>
   <style>
+    /* CSS Variables for seamless Light/Dark Mode switching */
+    :root {
+      --bg-color: #f8f9fa;
+      --text-color: #333333;
+      --card-bg: #ffffff;
+      --link-color: #315d86;      /* Stronger, more saturated blue */
+      --link-hover: #1d3557;
+      --shadow-color: rgba(0, 0, 0, 0.05);
+      --border-color: #cccccc;
+      --input-bg: #ffffff;
+      --radius: 10px;              /* Unified Corner Radius */
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #121212;
+        --text-color: #e0e0e0;
+        --card-bg: #1e1e1e;
+        --link-color: #8fb1d2;    /* Kept your favorite Ice Blue */
+        --link-hover: #b5cbe0;
+        --shadow-color: rgba(0, 0, 0, 0.4);
+        --border-color: #444444;
+        --input-bg: #2a2a2a;
+      }
+    }
+
     body {
       margin: 0;
       font-family: system-ui, sans-serif;
-      background-color: #f8f9fa;
-      color: #333;
+      background-color: var(--bg-color);
+      color: var(--text-color);
       display: flex;
       flex-direction: column;
       align-items: center;
       padding: 2rem;
+      transition: background-color 0.3s, color 0.3s;
     }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     h1 {
       font-size: 3rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 3rem;
+      text-align: center;
     }
-    p.description {
-      max-width: 700px;
-      text-align: justify;
+
+    /* Social Links Styling */
+    .social-links {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4em;
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
       font-size: 1.1rem;
     }
+
+    /* Structured Summary Styling */
+    .summary-section {
+      max-width: 900px; /* Slightly wider to guarantee 3 equal columns fit perfectly */
+      width: 100%;
+      background: var(--card-bg);
+      padding: 2.5rem 1rem; /* Uniform outer padding for top/bottom */
+      border-radius: var(--radius);
+      box-shadow: 0 4px 5px var(--shadow-color);
+      margin-bottom: 2rem;
+      box-sizing: border-box;
+      display: grid; 
+      grid-template-columns: 1fr 1fr 1fr; /* Absolute symmetry */
+      gap: 0;
+      align-items: stretch; /* Ensures vertical borders span equally */
+    }
+
+    .summary-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; /* Vertically centers the content perfectly */
+      padding: 0 1.5rem; /* Exactly equal horizontal padding for all columns */
+      line-height: 1.5;
+    }
+
+    .summary-item.center {
+      border-left: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+    }
+
+    .summary-item strong {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 1.2rem;
+      color: var(--link-color);
+      text-align: center;
+    }
+
+    .custom-list {
+      list-style: none;
+      padding: 0;
+      margin: 0; 
+      display: inline-block; /* Shrink-wraps to guarantee left/right equal distance to border */
+    }
+
+    .custom-list li {
+      position: relative;
+      padding-left: 1.8rem;
+      margin-bottom: 0.8rem;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      text-align: left;
+    }
+
+    .custom-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .custom-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.6em;    
+      width: 1rem; 
+      height: 3px;   
+      background-color: var(--link-color); 
+      border-radius: 2px;
+    }
+
+    .cv-button {
+      margin-top: 1.5rem; 
+      font-size: 0.75rem; 
+      color: var(--link-color); 
+      border: 2px solid var(--link-color); 
+      padding: 0.4rem 0.8rem; 
+      border-radius: var(--radius); 
+      transition: all 0.2s ease; 
+      font-weight: 600; 
+      cursor: pointer; 
+      text-decoration: none;
+    }
+
+    .cv-button:hover {
+      background-color: var(--link-color);
+      color: white !important;
+      text-decoration: none !important;
+    }
+
+    /* Mobile fix for summary and projects */
+    @media (max-width: 768px) {
+      .summary-section {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+        padding: 2rem 1.5rem !important;
+        width: auto !important; 
+        max-width: fit-content !important; 
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .summary-item.center {
+        border: none !important;
+      }
+      .summary-item {
+        padding: 0 !important;
+      }
+      .project-header {
+        flex-direction: column;
+      }
+      .project-meta-right {
+        text-align: right !important;
+        align-self: flex-end; 
+        margin-top: 0.5rem;
+      }
+    }
+
+    /* Projects Styling */
     .project-list {
       display: flex;
       flex-direction: column;
@@ -31,164 +193,298 @@
       max-width: 800px;
       width: 100%;
     }
+
     .project {
-      background: #fff;
-      padding: 1rem 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    }
-    .project h2 {
-      margin: 0 0 0.5rem 0;
-      font-size: 1.3rem;
-    }
-    .project p {
-    margin: 0;
-    text-align: justify;
-    }
-    a {
-      color: #0066cc;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .contact-links a {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4em;
-      text-decoration: none;
-      color: #0077b5;
-      font-weight: 500;
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 5px var(--shadow-color);
     }
 
-    .contact-links a:hover {
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.8rem;
+    }
+
+    .project-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 0.2rem;
+    }
+
+    .project-meta-right {
+      text-align: right;
+      min-width: 120px;
+    }
+
+    .project-meta-right a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--link-color);
+      text-decoration: none;
+      border: 2px solid var(--link-color);
+      padding: 0.2rem 0.55rem;
+      border-radius: var(--radius);
+      font-size: 0.82rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      min-height: 1rem;
+      margin-top: 0.35rem;
+    }
+
+    .project-meta-right a:hover {
+      background-color: var(--link-color);
+      color: white !important;
+      text-decoration: none;
+    }
+
+    .project p {
+      margin: 0;
+      text-align: justify;
+      line-height: 1.5;
+    }
+
+    a {
+      color: var(--link-color);
+      text-decoration: none;
+    }
+
+    a:hover {
       text-decoration: underline;
+      color: var(--link-hover);
+    }
+
+    /* Form Styling */
+    input, textarea {
+      padding: 0.5rem;
+      font-size: 1rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-color);
+      background-color: var(--input-bg);
+      color: var(--text-color);
+      font-family: inherit;
+    }
+
+    button {
+      padding: 0.6rem 2rem;
+      font-size: 1rem;
+      background-color: var(--link-color);
+      color: #ffffff;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.2s;
+    }
+
+    button:hover {
+      background-color: var(--link-hover);
     }
   </style>
 </head>
 <body>
   <h1>Peter Preisler</h1>
 
-  <p class="contact-links">
+  <div class="social-links">
     <a href="https://www.linkedin.com/in/peter-preisler" target="_blank" rel="noopener noreferrer">
-        <img src="./images/linked-in-logo.png" alt="LinkedIn" style="height: 1em; vertical-align: middle;"> LinkedIn Profile
+      <picture>
+        <source srcset="./images/InBug-White.png" media="(prefers-color-scheme: dark)">
+        <img src="./images/InBug-Black.png" alt="LinkedIn" style="height: 1.2em; vertical-align: middle;">
+      </picture>
+      LinkedIn
     </a>
-  </p>
-  
-  <p class="description">
-    I&rsquo;m a master&rsquo;s student in Physics and Technology for Space Travel Applications at Justus-Liebig-University in Gießen. During my bachelor&rsquo;s studies, I completed internships at OHB and Tesat, which deepened my interest in applied space technologies and proved my ability to quickly adapt to new work environments. I spent the first year of my master&rsquo;s program at the University of Washington in Seattle, where I focused on plasma physics and space applications while also exploring broader topics like quantum computing and special relativity. I aim to contribute to advancing space technology - whether through academic research or in the private sector.
-  </p>
+    <a href="https://github.com/peterplr" target="_blank" rel="noopener noreferrer">
+      <picture>
+        <source srcset="./images/GitHub_Invertocat_White.svg" media="(prefers-color-scheme: dark)">
+        <img src="./images/GitHub_Invertocat_Black.svg" alt="GitHub" style="height: 1.2em; vertical-align: middle;">
+      </picture>
+      GitHub
+    </a>
+  </div>
 
-  <h2 style="margin-top: 2rem; font-size: 1.6rem;">Selected Projects</h2>
+  <div class="summary-section">
+    <div class="summary-item" style="transform: translateY(-0.5rem);">
+      <strong style="color: var(--text-color); opacity: 0.6;">Past</strong>
+      <ul class="custom-list">
+        <li>B.Sc. Phys. & Space Tech.</li>
+        <li>Internships at OHB & Tesat</li>
+        <li>Exchange at Univ. of Wash.</li>
+      </ul>
+    </div>
+
+    <div class="summary-item center">
+      <strong style="font-size: 1.2rem; font-weight: 800;">Current</strong>
+      <ul class="custom-list">
+        <li>Second Year Graduate Student</li>
+        <li>Plasmas & Space Propulsion</li>
+        <li>Teaching Assistant</li>
+      </ul>
+      
+      <a href="#contact" 
+         class="cv-button"
+         onclick="document.getElementById('subject-line').value = 'CV Request - Peter Preisler'; document.getElementById('message-box').value = 'Hello Peter, I would like to request your CV regarding...'; document.getElementById('message-box').focus();">
+         Request CV
+      </a>
+    </div>
+
+    <div class="summary-item" style="transform: translateY(-0.5rem);">
+      <strong style="color: var(--text-color); opacity: 0.6;">Future</strong>
+      <ul class="custom-list">
+        <li>M.Sc. Graduation</li>
+        <li>Space Sector R&D</li>
+        <li>Experimental Physics</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 style="margin-top: 1rem; font-size: 1.6rem;">Selected Projects</h2>
   <div class="project-list">
 
       <div class="project">
-        <div style="display: flex; justify-content: space-between; align-items: baseline">
-            <div style="margin-bottom: 0.5rem;">
-                <strong>Continuum Kinetic Plasma Simulations</strong><br>
-                University of Washington<br>
-                <em>June 2025</em>
-            </div>
+        <div class="project-header">
             <div>
-                <a href="./docs/2025-6-CP3-english.pdf" target="_blank">[PDF]</a>
+                <div class="project-title">Gas-Surface Interactions in Passive Intakes
+for Air Breathing Electric Propulsion</div>
+                <div>Justus Liebig University</div>
+            </div>
+            <div class="project-meta-right">
+                <em>March 2026</em><br>
+                <a href=".docs/2026-3-GSI-Intake-ABEP-english.pdf" target="_blank">PDF</a>
+            </div>
+        </div>
+        <p>Understanding the gas-surface interactions at orbital velocities is crucial for designing intakes for air breathing electric propulsion systems. To support this, I performed beam characterization measurements using Faraday Probes and Retarding Potential Analyzers. For two experimental setups, I made critical contributions that advanced both the hardware capabilities and the subsequent data analysis.</p>
+      </div>
+
+      <div class="project">
+        <div class="project-header">
+            <div>
+                <div class="project-title">Atmospheric Re-Entry Simulations</div>
+                <div>Justus Liebig University</div>
+            </div>
+            <div class="project-meta-right">
+                <em>November 2025</em><br>
+                <a href="./docs/2025-11-Reentry-Simulations-english.pdf" target="_blank">PDF</a>
+            </div>
+        </div>
+        <p>In this project I simulated atmospheric re-entry by numerically solving the governing equations of motion and approximated the heat flux with the Sutton-Graves correlation. This made it possible to quantify the impact of different trajectory design parameters on the total mechanical and thermal loads. Characteristic trajectories were found for ballistic and aerodynamic re-entry.</p>
+      </div>
+
+      <div class="project">
+        <div class="project-header">
+            <div>
+                <div class="project-title">Continuum Kinetic Plasma Simulations</div>
+                <div>University of Washington</div>
+            </div>
+            <div class="project-meta-right">
+                <em>June 2025</em><br>
+                <a href="./docs/2025-6-CP3-english.pdf" target="_blank">PDF</a>
             </div>
         </div>
         <p>Numerical solutions of Vlasov's equation are developed on a 1D1V grid using Strang splitting and upwind methods. The method is applied to study Landau damping and the two-stream instability. While the simulations reproduce the expected physical processes, low numerical accuracy leads to deviations from theoretical growth rates.</p>
       </div>
 
       <div class="project">
-        <div style="display: flex; justify-content: space-between; align-items: baseline">
-            <div style="margin-bottom: 0.5rem;">
-                <strong>Nonlinear MHD Plasma Dynamics, Toroidal Equilibria, Linear Stability</strong><br>
-                University of Washington<br>
-                <em>May 2025</em>
-            </div>
+        <div class="project-header">
             <div>
-                <a href="./docs/2025-5-CP2-english.pdf" target="_blank">[PDF]</a>
+                <div class="project-title">Nonlinear MHD Plasma Dynamics, Toroidal Equilibria, Linear Stability</div>
+                <div>University of Washington</div>
+            </div>
+            <div class="project-meta-right">
+                <em>May 2025</em><br>
+                <a href="./docs/2025-5-CP2-english.pdf" target="_blank">PDF</a>
             </div>
         </div>
         <p>Three different numerical approaches are applied to investigate plasma confinement devices. A 3D MHD simulation is used to analyze sausage and kink instabilities in a z-pinch. The Grad-Shafranov equation is solved numerically for toroidal equilibria and compared with an analytical solution, showing excellent agreement. Finally, a linear stability analysis of a spheromak's tilt mode is performed.</p>
       </div>
 
       <div class="project">
-        <div style="display: flex; justify-content: space-between; align-items: baseline">
-            <div style="margin-bottom: 0.5rem;">
-                <strong>Accuracy, Stability, Convergence for Linear Advection and Ideal MHD Plasma Model</strong><br>
-                University of Washington<br>
-                <em>April 2025</em>
-            </div>
+        <div class="project-header">
             <div>
-                <a href="./docs/2025-FDM-schemes-MHD-simu-english.pdf" target="_blank">[PDF]</a>
+                <div class="project-title">Accuracy, Stability, Convergence for Linear Advection and Ideal MHD Plasma Model</div>
+                <div>University of Washington</div>
+            </div>
+            <div class="project-meta-right">
+                <em>April 2025</em><br>
+                <a href="./docs/2025-FDM-schemes-MHD-simu-english.pdf" target="_blank">PDF</a>
             </div>
         </div>
         <p>This project explores five different numerical schemes that are used to analyze the linear advection equation. Through truncation-error and Von Neumann stability analysis, these algorithms are examined for their characteristics and compared to each other. Finally, one of the schemes is generalized to simulate the 1D ideal-MHD model and solve the Brio-Wu shock problem. The results from the corresponding paper are successfully reproduced.</p>
       </div>
 
       <div class="project">
-          <div style="display: flex; justify-content: space-between; align-items: baseline">
-              <div style="margin-bottom: 0.5rem;">
-                  <strong>Augmented Apollo Powered Descent Guidance Paper Discussion</strong><br>
-                  University of Washington<br>
-                  <em>March 2025</em>
-              </div>
+          <div class="project-header">
               <div>
-                  <a href="./docs/2025-3-AAPDG-Paper-Discussion-english.pdf" target="_blank">[PDF]</a>
+                  <div class="project-title">Augmented Apollo Powered Descent Guidance Paper Discussion</div>
+                  <div>University of Washington</div>
+              </div>
+              <div class="project-meta-right">
+                  <em>March 2025</em><br>
+                  <a href="./docs/2025-3-AAPDG-Paper-Discussion-english.pdf" target="_blank">PDF</a>
               </div>
           </div>
           <p>In this project, I analyzed and reproduced a novel powered descent guidance system for lunar and martian landings. I recreated key elements of the guidance system and visualized its performance, providing an in-depth analysis of its potential advantages and limitations. This work deepened my understanding of spacecraft control systems and their application in precision landings for deep space exploration.</p>
       </div>
 
       <div class="project">
-          <div style="display: flex; justify-content: space-between; align-items: baseline">
-              <div style="margin-bottom: 0.5rem;">
-                  <strong>Ion Optics Simulation of a GIE Extraction Grid</strong><br>
-                  Justus Liebig University<br>
-                  <em>July 2024</em>
-              </div>
+          <div class="project-header">
               <div>
-                  <a href="./docs/2024-7-Study-Project-german.pdf" target="_blank">[PDF]</a>
+                  <div class="project-title">Ion Optics Simulation of a GIE Extraction Grid</div>
+                  <div>Justus Liebig University</div>
+              </div>
+              <div class="project-meta-right">
+                  <em>July 2024</em><br>
+                  <a href="./docs/2024-7-Study-Project-german.pdf" target="_blank">PDF</a>
               </div>
           </div>
           <p>Gridded ion engines (GIE) use an extraction grid to accelerate ions to the desired velocity. I performed simulations of ion optics using IBSimu, a Linux-based framework, to determine optimal grid distances. By comparing different figures of merit, I identified the optimal configuration for maximizing thrust efficiency.</p>
       </div>
 
       <div class="project">
-          <div style="display: flex; justify-content: space-between; align-items: baseline">
-              <div style="margin-bottom: 0.5rem;">
-                  <strong>Spectroscopic Temperature Measurements to Characterize Solid-State Ion Sources</strong><br>
-                  Justus Liebig University<br>
-              <em>June 2024</em>
-              </div>
+          <div class="project-header">
               <div>
-                  <a href="./docs/2024-5-Bachelorthesis-german.pdf" target="_blank">[PDF]</a>
+                  <div class="project-title">Spectroscopic Temperature Measurements to Characterize Solid-State Ion Sources</div>
+                  <div>Justus Liebig University</div>
+              </div>
+              <div class="project-meta-right">
+                  <em>June 2024</em><br>
+                  <a href="./docs/2024-5-Bachelorthesis-german.pdf" target="_blank">PDF</a>
               </div>
           </div>
           <p>In my bachelor thesis, I developed and automated a temperature measurement setup using optical emission spectroscopy to characterize solid-state ion sources. The Richardson-Dushman equation relates temperature to emitted current density, and I applied this to the study of crystal emission properties. My results confirmed the expected behavior of the produced crystals and demonstrated the method's potential for optimizing their production.</p>
       </div>
-
-      
   </div>
 
+  <h2 id="contact" style="margin-top: 3rem; font-size: 1.6rem;">Contact Me</h2>
+  <form action="https://formspree.io/f/xrbqzbqq" method="POST" style="max-width: 600px; width: 100%; display: flex; flex-direction: column; gap: 1.5rem;">
+    
+    <label style="display: flex; flex-direction: column; font-size: 1rem; font-weight: 500;">
+      Email Address
+      <input type="email" name="email" required style="margin-top: 0.5rem;">
+    </label>
 
-    <h2 style="margin-top: 2rem; font-size: 1.6rem;">Contact Me</h2>
-    <form action="https://formspree.io/f/xrbqzbqq" method="POST" style="max-width: 600px; width: 100%; display: flex; flex-direction: column; gap: 1rem;">
-      <label style="display: flex; flex-direction: column; font-size: 1rem;">
-        Your email:
-        <input type="email" name="email" required style="padding: 0.5rem; font-size: 1rem; border-radius: 6px; border: 1px solid #ccc;">
-      </label>
-      <label style="display: flex; flex-direction: column; font-size: 1rem;">
-        Your message:
-        <textarea name="message" rows="5" required style="padding: 0.5rem; font-size: 1rem; border-radius: 6px; border: 1px solid #ccc;"></textarea>
-      </label>
-      <button type="submit" style="align-self: flex-start; padding: 0.6rem 1.2rem; font-size: 1rem; background-color: #0066cc; color: white; border: none; border-radius: 6px; cursor: pointer;">
-        Send
-      </button>
-    </form>
+    <label style="display: flex; flex-direction: column; font-size: 1rem; font-weight: 500;">
+      Subject
+      <input type="text" id="subject-line" name="subject" required style="margin-top: 0.5rem;">
+    </label>
 
+    <label style="display: flex; flex-direction: column; font-size: 1rem; font-weight: 500;">
+      Message
+      <textarea id="message-box" name="message" rows="5" required style="margin-top: 0.5rem;"></textarea>
+    </label>
 
-  <footer style="margin-top: 1.5rem; font-size: 0.8rem; color: #666;">
-      <p>© 2025 Peter Preisler</p>
-      <p>Last updated: September 2025</p>
+    <button type="submit" style="align-self: center;">
+      Send Message
+    </button>
+  </form>
+
+  <footer style="margin-top: 3rem; font-size: 0.9rem; color: var(--border-color); text-align: center;">
+    <p>© 2026 Peter Preisler</p>
+    <p>Last updated: 2026-04-29</p>
   </footer>
+
 </body>
 </html>
