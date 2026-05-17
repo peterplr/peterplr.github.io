@@ -124,6 +124,16 @@
       text-align: left;
     }
 
+    .summary-item:not(.center) .custom-list li {
+      color: var(--text-color);
+      opacity: 0.7;
+    }
+
+    .summary-item:not(.center) .custom-list li::before {
+      background-color: var(--text-color);
+      opacity: 0.6;
+    }
+
     .custom-list li:last-child {
       margin-bottom: 0;
     }
@@ -347,8 +357,26 @@
       <div class="project">
         <div class="project-header">
             <div>
-                <div class="project-title">Gas-Surface Interactions in Passive Intakes
-for Air Breathing Electric Propulsion</div>
+                <div class="project-title">Characterization of an Atmospheric Argon Plasma via Collisional-Radiative Modeling</div>
+                <div>Justus Liebig University</div>
+            </div>
+            <div class="project-meta-right">
+                <em>May 2026</em><br>
+                <a href="https://github.com/peterplr/crm-argon" target="_blank">GIT</a>
+                <a href=".docs/2026-5-CRM-english.pdf" target="_blank">PDF</a>
+            </div>
+        </div>
+        <p>
+        Despite the wide application of atmospheric pressure plasmas in industry and science, accurate measurement of their plasma parameters remains challenging.
+        Thus, a Collisional-Radiative Model for argon was implemented to derive the electron temperature using optical emission spectra.
+        Ultimately, the developed framework provides a highly adaptable, open-source foundation for spectroscopic diagnostics of argon plasmas.
+        </p>
+      </div>
+
+      <div class="project">
+        <div class="project-header">
+            <div>
+                <div class="project-title">Gas-Surface Interactions in Passive Intakes for Air Breathing Electric Propulsion</div>
                 <div>Justus Liebig University</div>
             </div>
             <div class="project-meta-right">
@@ -483,7 +511,7 @@ for Air Breathing Electric Propulsion</div>
 
   <footer style="margin-top: 3rem; font-size: 0.9rem; color: var(--border-color); text-align: center;">
     <p>© 2026 Peter Preisler</p>
-    <p>Last updated: 2026-04-29</p>
+    <p>Last updated: 2026-05-17</p>
   </footer>
 
 </body>
